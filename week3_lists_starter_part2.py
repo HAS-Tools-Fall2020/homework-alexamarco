@@ -88,7 +88,6 @@ for i in range(len(flow)):
 prediction1week = np.mean(week4list)
 prediction2week = np.mean(week5list)
 
-
 # see how many times the criteria was met by checking the length
 # of the index list that was generated
 print(prediction1week)
@@ -103,4 +102,66 @@ print(prediction2week)
 # This  subset of data is just the elements identified 
 # in the ilist
 # subset = [flow[j] for j in ilist]
+# %%
+# How many times was the daily flow greater than your prediction in the month of September 
+# (express your answer in terms of the total number of times and as a percentage)?
+
+week2prediction = 166.70552995391705
+week3prediction = 197.0603686635945
+week4prediction = 158.10230414746545
+week5prediction = 198.9304147465438
+week6prediction = 129.55898617511522
+
+week1list = []
+week2list = []
+week3list = []
+week4list = []
+week5list = []
+week6list = []
+
+for l in range(len(flow)):
+        if month[l] == 9 and day[l] >= 1 and day[l] <= 6 and year[l] <= 2000:
+                week2list.append(flow[l])
+        elif month[l] == 9 and day[l] >= 7 and day[l] <= 13 and year[l] <= 2000:
+                week3list.append(flow[l])
+        elif month[l] == 9 and day[l] >= 14 and day[l] <= 20 and year[l] <= 2000:
+                week4list.append(flow[l])
+        elif month[l] == 9 and day[l] >= 21 and day[l] <= 27 and year[l] <= 2000:
+                week5list.append(flow[l])
+        elif month[l] == 9 and day[l] >= 28 and day[l] <= 30 and year[l] <= 2000:
+                week6list.append(flow[l])
+
+
+count1 = 0
+count2 = 0
+count3 = 0
+count4 = 0
+count5 = 0
+
+for j in range(len(week2list)):
+        if week2prediction < week2list[j]:
+                count1 = count1 + 1
+
+for k in range(len(week3list)):
+        if week3prediction < week3list[k]:
+                count2 = count2 + 1
+
+for m in range(len(week4list)):
+        if week4prediction < week4list[m]:
+                count3 = count3 + 1
+
+for n in range(len(week5list)):
+        if week5prediction < week5list[n]:
+                count4 = count4 + 1
+
+for o in range(len(week6list)):
+        if week6prediction < week6list[o]:
+                count5 = count5 + 1
+
+count = count1 + count2 + count3 + count4 + count5
+tot = len(week2list) + len(week3list) + len(week4list) + len(week5list) + len(week6list)
+print(count)
+print(count/tot)
+
+
 # %%

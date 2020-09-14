@@ -51,7 +51,7 @@ del(data)
 # flow, date, yaer, month and day
 
 # Calculating some basic properites
-print(min(flow))
+print(len(flow))
 print(max(flow))
 print(np.mean(flow))
 print(np.std(flow))
@@ -134,6 +134,7 @@ weeklist.append(np.mean(week16list))
 # of the index list that was generated
 print(weeklist)
 
+
 # Alternatively I could have  written the for loop I used 
 # above to  create ilist like this
 # ilist2 = [i for i in range(len(flow)) if flow[i] > 600 and month[i]==7]
@@ -144,3 +145,4 @@ print(weeklist)
 # in the ilist
 # subset = [flow[j] for j in ilist]
 # %%
+
