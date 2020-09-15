@@ -2,6 +2,12 @@ Alexa Marcovecchio
 September 14, 2020
 Assignment 3
 
+---------
+# Grade
+
+3/3 - Wow! Nice approach I really like how you did that. 
+---
+
 Forecast Summary:
 The code for this forecast is in my homework folder and includes the scripts Marcovecchio_HW3_part1.py and Marcovecchio_HW3_part2.py.  ts Marcovecchio_HW3_part1.py generates the 16 week forecast using the week 1 daily streamflow data from USGS.  I use a for loop to go through each index in the flow array provided.  I then use if and elif statements with combined conditionals to make a list of all data points for each forecasting week since 1989 by specifying the day and month of each date, but not the year.  I then average each week's data and append that average to the list of weekly streamflow predictions. Marcovecchio_HW3_part2.py generates my forecasting estimates for next week and the following week using the same methods as the first script, but with more recent data included (from 1989 to this past Saturday).
 
