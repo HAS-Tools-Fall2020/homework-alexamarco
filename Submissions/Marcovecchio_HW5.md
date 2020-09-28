@@ -2,7 +2,7 @@ Alexa Marcovecchio
 September 28, 2020
 Assignment 5
 
-Forecast Summary: My code for this week is in Marcovecchio_HW5.py.  Dataframes finally gave me the functionality I'm used to using while working with data.  I definitely prefer them over lists and numpy arrays.  This allowed me to use the algorithm that I initially thought of for week 3, but couldn't utilize at the time due to the limits of lists and arrays in python.  I wanted to directly subset the entries for the dates within each forecasting week, and then take the mean of the data for each week.  Pandas let me do that in two lines of code which made my life a lot easier.
+Forecast Summary: My code for this week is in Marcovecchio_HW5.py.  Dataframes finally gave me the functionality I'm used to having while working with data.  I definitely prefer them over lists and numpy arrays.  This allowed me to use the algorithm that I initially thought of for week 3, but couldn't utilize at the time due to the limits of lists and arrays in python.  I wanted to directly subset the entries for the dates within each forecasting week, and then take the mean of the data for each week.  Pandas let me do that in two lines of code which made my life a lot easier.
 
 
 1. Provide a summary of the data frames properties. What are the column names? What is its index? What data types do each of the columns have?
