@@ -1,3 +1,10 @@
+Alexa Marcovecchio
+September 28, 2020
+Assignment 5
+
+Forecast Summary: My code for this week is in Marcovecchio_HW5.py.  Dataframes finally gave me the functionality I'm used to using while working with data.  I definitely prefer them over lists and numpy arrays.  This allowed me to use the algorithm that I initially thought of for week 3, but couldn't utilize at the time due to the limits of lists and arrays in python.  I wanted to directly subset the entries for the dates within each forecasting week, and then take the mean of the data for each week.  Pandas let me do that in two lines of code which made my life a lot easier.
+
+
 1. Provide a summary of the data frames properties. What are the column names? What is its index? What data types do each of the columns have?
     | # |  Column   |    Dtype  |
     |---|  ------   |    -----  |
@@ -13,6 +20,7 @@
 
 2. Provide a summary of the flow column including the min, mean, max, standard deviation and quartiles.
 
+
     min =  19.0,
     max =  63400.0,
     mean =  346.33779833967486,
@@ -21,143 +29,142 @@
      0.00     19.0,
      0.25     94.0,
      0.50    158.0,
-     0.75    216.0,
-
+     0.75    216.0
 
 
 3. Provide the same information but on a monthly basis. (Note: you should be able to do this with one or two lines of code)
 
 
-    month =  1
-    min =  158.0
-    max =  63400.0
-    mean =  706.320564516129
-    std =  2749.1539834433843
+    month =  1,
+    min =  158.0,
+    max =  63400.0,
+    mean =  706.320564516129,
+    std =  2749.1539834433843,
     quartiles:
-     0.00    158.0
-     0.25    202.0
-     0.50    219.5
+     0.00    158.0,
+     0.25    202.0,
+     0.50    219.5,
      0.75    292.0
 
-    month =  2
-    min =  136.0
-    max =  61000.0
-    mean =  925.2522123893805
-    std =  3348.8211966260374
+    month =  2,
+    min =  136.0,
+    max =  61000.0,
+    mean =  925.2522123893805,
+    std =  3348.8211966260374,
     quartiles:
-     0.00    136.0
-     0.25    201.0
-     0.50    244.0
-     0.75    631.0
+     0.00    136.0,
+     0.25    201.0,
+     0.50    244.0,
+     0.75    631.0,
 
     month =  3
-    min =  97.0
-    max =  30500.0
-    mean =  941.7318548387096
-    std =  1645.8038723215857
+    min =  97.0,
+    max =  30500.0,
+    mean =  941.7318548387096,
+    std =  1645.8038723215857,
     quartiles:
-     0.00      97.0
-     0.25     179.0
-     0.50     387.5
+     0.00      97.0,
+     0.25     179.0,
+     0.50     387.5,
      0.75    1060.0
 
-    month =  4
-    min =  64.9
-    max =  4690.0
-    mean =  301.24
-    std =  548.1409116305116
+    month =  4,
+    min =  64.9,
+    max =  4690.0,
+    mean =  301.24,
+    std =  548.1409116305116,
     quartiles:
-     0.00     64.9
-     0.25    112.0
-     0.50    142.0
+     0.00     64.9,
+     0.25    112.0,
+     0.50    142.0,
      0.75    214.5
 
-    month =  5
-    min =  46.0
-    max =  546.0
-    mean =  105.4423387096774
-    std =  50.774742858882746
+    month =  5,
+    min =  46.0,
+    max =  546.0,
+    mean =  105.4423387096774,
+    std =  50.774742858882746,
     quartiles:
-     0.00     46.000
-     0.25     77.975
-     0.50     92.950
+     0.00     46.000,
+     0.25     77.975,
+     0.50     92.950,
      0.75    118.000
 
-	month =  6
-	min =  22.1
-	max =  481.0
-	mean =  65.99895833333333
-	std =  28.966450676874103
+	month =  6,
+	min =  22.1,
+	max =  481.0,
+	mean =  65.99895833333333,
+	std =  28.966450676874103,
 	quartiles:
-	 0.00    22.100
-	 0.25    49.225
-	 0.50    60.500
+	 0.00    22.100,
+	 0.25    49.225,
+	 0.50    60.500,
 	 0.75    77.000
 
-	month =  7
-	min =  19.0
-	max =  1040.0
-	mean =  95.57147177419354
-	std =  83.51234271122603
+	month =  7,
+	min =  19.0,
+	max =  1040.0,
+	mean =  95.57147177419354,
+	std =  83.51234271122603,
 	quartiles:
-	 0.00     19.0
-	 0.25     53.0
-	 0.50     70.9
+	 0.00     19.0,
+	 0.25     53.0,
+	 0.50     70.9,
 	 0.75    110.0
 
-	month =  8
-	min =  29.6
-	max =  5360.0
-	mean =  164.5731313131313
-	std =  274.69809493747493
+	month =  8,
+	min =  29.6,
+	max =  5360.0,
+	mean =  164.5731313131313,
+	std =  274.69809493747493,
 	quartiles:
-	 0.00     29.60
-	 0.25     76.55
-	 0.50    114.50
+	 0.00     29.60,
+	 0.25     76.55,
+	 0.50    114.50,
 	 0.75    170.75
 
-	month =  9
-	min =  48.6
-	max =  5590.0
-	mean =  176.02623655913982
-	std =  290.05276436178985
+	month =  9,
+	min =  48.6,
+	max =  5590.0,
+	mean =  176.02623655913982,
+	std =  290.05276436178985,
 	quartiles:
-	 0.00     48.6
-	 0.25     90.0
-	 0.50    122.0
+	 0.00     48.6,
+	 0.25     90.0,
+	 0.50    122.0,
 	 0.75    173.0
 
-	month =  10
-	min =  69.9
-	max =  1910.0
-	mean =  146.16899063475546
-	std =  111.77907151647076
+	month =  10,
+	min =  69.9,
+	max =  1910.0,
+	mean =  146.16899063475546,
+	std =  111.77907151647076,
 	quartiles:
 	 0.00     69.9
-	 0.25    107.0
-	 0.50    125.0
-	 0.75    153.0
+	 0.25    107.0,
+	 0.50    125.0,
+	 0.75    153.0,
 
-	month =  11
-	min =  117.0
-	max =  4600.0
-	mean =  205.105376344086
-	std =  235.67353419105768
+	month =  11,
+	min =  117.0,
+	max =  4600.0,
+	mean =  205.105376344086,
+	std =  235.67353419105768,
 	quartiles:
-	 0.00    117.0
-	 0.25    156.0
-	 0.50    175.0
+	 0.00    117.0,
+	 0.25    156.0,
+	 0.50    175.0,
 	 0.75    199.0
 
-	month =  12
-	min =  155.0
-	max =  28700.0
-	mean =  337.09781477627473
-	std =  1097.2809257458348
+	month =  12,
+	min =  155.0,
+	max =  28700.0,
+	mean =  337.09781477627473,
+	std =  1097.2809257458348,
 	quartiles:
-	 0.00    155.0
-	 0.25    191.0
-	 0.50    204.0
+	 0.00    155.0,
+	 0.25    191.0,
+	 0.50    204.0,
 	 0.75    228.0
 
 4. Provide a table with the 5 highest and 5 lowest flow values for the period of record. Include the date, month and flow values in your summary.
