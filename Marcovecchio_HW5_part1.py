@@ -76,6 +76,11 @@ data['day'] = data['day'].astype(int)
 
 #%%
 # question 6
+# one week forecast is 52 --> 10% range is 46.8 to 57.2
+
+checkforecast = data[(data.flow >= 46.8) & (data.flow <= 57.2)]
+datelist = checkforecast.datetime.tolist()
+print(datelist)
 
 
 
@@ -130,7 +135,8 @@ wk15mean = wk15.flow.mean()
 wk16 = data[(data.month == 12) & (data.day >= 7) & (data.day <= 13)]
 wk16mean = wk16.flow.mean()
 
-forecasts = pd.DataFrame(20)
+forecasts = np.array([wk1mean,wk2mean,wk3mean,wk4mean,wk5mean,wk6mean,wk7mean,wk8mean,wk9mean,wk10mean,wk11mean,wk12mean,wk13mean,wk14mean,wk15mean,wk16mean])
+print(forecasts)
 
 
 # %%
