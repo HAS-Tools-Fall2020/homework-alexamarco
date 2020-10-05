@@ -11,16 +11,17 @@ For your written assignment provide the following. Your submission should includ
 
   My model is described in Marcovecchio_HW6_part1.py.  For my prediction variables, I have three shifts of the flow variable: 1 day, 2 day, and 5 day.  The final equation is y = 147.98 + 0.49(x1) + 0.03(x2) + 0.17(x5) with an r^2 value of 0.33.  I used the first 500 flow entries (skipping the first 5 to account for the 5 day maximum shift) as training and then used all data after day 500 as the test dataset.
 
+
+
+  Based on my limited understanding of hydrology, I felt that adding an extra shift that is 5 days behind might better reflect the slower process of runoff joining streamflow.  Looking at the log scale vs standard scale plots also showed me how clustered the vast majority of streamflow values are.  I did not realize how dramatic the difference between most values and the outliers would be until I looked at the plot with a standard scale.
+
   ![](assets/Marcovecchio_HW6-fa58ac92.png)
 
   ![](assets/Marcovecchio_HW6-d576882f.png)
 
-  Based on my limited understanding of hydrology, I felt that adding an extra shift that is 5 days behind might better reflect the slower process of runoff joining streamflow.  Looking at the log scale vs standard scale plots also showed me how clustered the vast majority of streamflow values are.  I did not realize how dramatic the difference between most values and the outliers would be until I looked at the plot with a standard scale.
-
-
 2. Provide an analysis of your final model performance. This should include at least one graph that shows the historical vs predicted streamflow and some discussion of qualitatively how you think your model is good or bad.
 
-  ![](assets/Marcovecchio_HW6-e43b20a4.png)
+![](assets/Marcovecchio_HW6-e43b20a4.png)
 
   Looking at my model predictions vs test group, it is clear that my model is very bad at predicting values that are below average.  It does seem to capture the spikes in data pretty well, though. I would not call it a good model, but it is much better than I thought it would be.
 
