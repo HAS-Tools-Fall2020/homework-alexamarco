@@ -2,6 +2,13 @@ Alexa Marcovecchio
 October 5th, 2020
 Assignment 6
 
+____
+### Grade
+3/3 - nice job, really nice plots!
+
+One note: if you don't write your md file in the submission folder but instead you copy it in you need to make sure to copy in the 'assets' folder that has the images into  your submission folder. Note that this is where the markdown file is expecting your images to be so if you want them to render correctly the path has to be there (![](assets/Marcovecchio_HW6-fa58ac92.png))
+___
+
 Forecast Summary: *see question 3*
 
 
