@@ -5,6 +5,7 @@
 # Import the modules we will use
 import os
 import pandas as pd
+import numpy as np
 from sklearn.linear_model import LinearRegression
 # %%
 # ** MODIFY **
@@ -56,9 +57,9 @@ model.fit(x, y)
 
 # Look at the results
 r_sq = model.score(x, y)
-# print('coefficient of determination:', np.round(r_sq, 2))
-# print('intercept:', np.round(model.intercept_, 2))
-# print('slope:', np.round(model.coef_, 2))
+print('coefficient of determination:', np.round(r_sq, 2))
+print('intercept:', np.round(model.intercept_, 2))
+print('slope:', np.round(model.coef_, 2))
 
 # calculate regression without intercept
 # note! removing the intercept significantly improved the model
@@ -107,3 +108,5 @@ print('week 2 regression forecast = ', forecasts[1])
 
 print('week 1 forecast for submission = 58')
 print('week 2 forecast for submission = 60')
+
+# %%
