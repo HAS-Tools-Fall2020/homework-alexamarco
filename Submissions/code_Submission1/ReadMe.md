@@ -4,6 +4,15 @@ October 18th, 2020
 
 Assignment 8
 
+#### Grade 
+ - 6/6  Great  job!
+ - Readability: 3
+ - Style: 3 
+ - Code: 2
+
+ - Really nice job with the comments especially on your funciton. 
+ - I made a suggestion for how you could make your 16 week forecast in a loop
+
 
 1. A brief summary of the AR model you built and why. Use whatever graphs you find helpful.
 

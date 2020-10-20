@@ -81,6 +81,7 @@ flow_weekly['flow_tm5'] = flow_weekly['flow'].shift(5)  # 5 day shift
 
 # Step 2 - pick portions of time series for training & testing
 # skip first 5 days b/c tm3 has a 5 day shift
+# LC - you could think about defining these numbers as variables
 train = flow_weekly[5:500][['flow', 'flow_tm1', 'flow_tm2', 'flow_tm5']]
 test = flow_weekly[500:][['flow', 'flow_tm1', 'flow_tm2', 'flow_tm5']]
 
@@ -147,6 +148,10 @@ data['day'] = data['day'].astype(int)  # day integer
 
 # get averages for forecasting based on dates for each
 # forecasting week of the semester
+
+# LC - This is something ou could put into a loop. 
+# you would just have to define the the months and days 
+# as lists outside your loop 
 
 # Week 1: 8/24-8/30
 wk1mean = data[(data.month == 8) & (data.day >= 24) &
