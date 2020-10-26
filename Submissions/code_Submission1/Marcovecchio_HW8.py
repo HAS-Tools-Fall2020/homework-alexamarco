@@ -145,13 +145,13 @@ data['year'] = data['year'].astype(int)  # year integer
 data['month'] = data['month'].astype(int)  # month integer
 data['day'] = data['day'].astype(int)  # day integer
 
-
+# 65e9ee97251c4df881c319b8d639981c
 # get averages for forecasting based on dates for each
 # forecasting week of the semester
 
-# LC - This is something ou could put into a loop. 
-# you would just have to define the the months and days 
-# as lists outside your loop 
+# LC - This is something you could put into a loop.
+# you would just have to define the the months and days
+# as lists outside your loop
 
 # Week 1: 8/24-8/30
 wk1mean = data[(data.month == 8) & (data.day >= 24) &
