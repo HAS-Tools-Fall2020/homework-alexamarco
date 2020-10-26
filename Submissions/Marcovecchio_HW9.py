@@ -1,69 +1,9 @@
 # %%
 # Import the modules we will use
-import os
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import urllib.request as req
-
-
-def twoWeekForecasts(test_dataframe, model):
-    """Compute the one and two week forecasts using model.
-    ---------------------------------
-    This function uses the last two results from the test
-    data and extrapolates on them.  The most recent test
-    result becomes the one week forecast.  The two week
-    forecast is calculated by multiplying the most resent
-    test result for the 1 day and 2 day coefficients and
-    the second most recent result for the 5 day coefficients.
-    ---------------------------------
-    Parameters:
-    test_dataframe - pandas dataframe
-        Contains flow data from 1989 to now.
-    model - sklearn regression model
-        Provides coefficients for 1, 2, and 5 day flows.
-    ----------------------------------
-    Outputs:
-    wk1_forecast - float
-        One week forecast of streamflow.
-    wk2_forecast - float
-        Two week forecast of streamflow
-    """
-    series = test_dataframe['flow']
-    series = series[:-2]
-    coefficients = model.coef_
-    wk1_forecast = series[2]
-    wk2_forecast = coefficients[0] * series[0] + \
-        coefficients[1] * series[0] + \
-        coefficients[2] * series[1]
-    return wk1_forecast, wk2_forecast
-
-
-def weekDates(weekNumber):
-    """Compute the one and two week forecasts using model.
-    ---------------------------------
-    This function takes no input and returns the list of
-    students' first names in the class.  This makes it easy to
-    access the class list from any script.
-    ---------------------------------
-    Parameters:
-    weekNumber = integer
-                 number indicating the week of the semester
-    ----------------------------------
-    Outputs:
-    startDate = string
-                contains start date of forecast week
-    stopDate = string
-               contains end date of forecast week
-    """
-
-    datefile = os.path.join('../data', 'Seasonal_Foercast_Dates.csv')
-    forecast_dates = pd.read_csv(datefile,
-                                 index_col='forecast_week')
-
-    startDate = forecast_dates.loc[weekNumber, 'start_date']
-    stopDate = forecast_dates.loc[weekNumber, 'end_date']
-    return startDate, stopDate
 
 
 # %%
@@ -103,32 +43,43 @@ meso_page = req.urlopen(meso_url)
 
 # make dictionary from mesonet API
 meso_dict = json.loads(meso_page.read())
+# get keys
 print(meso_dict['STATION'][0]['OBSERVATIONS']['precipitation'][0].keys())
 
-# get dates and precipitation totals
+# ----- get dates and precipitation totals -----
+
+# make temporary dataframe index w/ same number of entries a data
 ct = range(14)
-meso_data = pd.DataFrame(meso_dict['STATION'][0]['OBSERVATIONS']['precipitation'], index=ct)
-meso_data['first_report'] = pd.to_datetime(meso_data['first_report'], format='%Y-%m-%dT%H:%M:%SZ')
+# create dataframe using temporary index
+meso_data = pd.DataFrame(meso_dict['STATION'][0]
+                         ['OBSERVATIONS']['precipitation'],
+                         index=ct)
+# convert first report column into datetime format
+meso_data['first_report'] = pd.to_datetime(meso_data['first_report'],
+                                           format='%Y-%m-%dT%H:%M:%SZ')
+# make column of dates w/o time stamp
 meso_data['date'] = pd.DatetimeIndex(meso_data['first_report']).date
+# set the column of dates as permanent index to the dataframe
 meso_data.index = meso_data['date']
 
 
 # %%
+# Make Plots!
+
 # Plot daily streamflow
 fig, ax = plt.subplots()
 ax.plot(data['datetime'].tail(14), data['flow'].tail(14), color='C0')
 ax.set(title="Streamflow from Past Two Weeks",
        xlabel="Date", ylabel="Daily Flow [cfs]")
 ax.legend()
-# an example of saving your figure to a file
 fig.set_size_inches(10, 6)
 
+# Plot daily precip
 fig, bx = plt.subplots()
 bx.plot(meso_data['total'], color='violet')
 bx.set(title="Precipitation at Sedona, AZ from Past Two Weeks",
        xlabel="Date", ylabel="Rainfall mm/hr")
 bx.legend()
-# an example of saving your figure to a file
 fig.set_size_inches(10, 6)
 
 # %%
@@ -151,7 +102,7 @@ data_16wk['year'] = data_16wk['year'].astype(int)  # year integer
 data_16wk['month'] = data_16wk['month'].astype(int)  # month integer
 data_16wk['day'] = data_16wk['day'].astype(int)  # day integer
 
-# 65e9ee97251c4df881c319b8d639981c
+
 # get averages for forecasting based on dates for each
 # forecasting week of the semester
 
@@ -165,68 +116,70 @@ wk1mean = data_16wk[(data_16wk.month == 8) & (data_16wk.day >= 24) &
 
 # Week 2: 8/31-9/6
 wk2mean = data_16wk[((data_16wk.month == 8) & (data_16wk.day == 31)) |
-               ((data_16wk.month == 9) &
-               (data_16wk.day >= 1) & (data_16wk.day <= 6))].flow.mean()
+                    ((data_16wk.month == 9) &
+                    (data_16wk.day >= 1) & (data_16wk.day <= 6))].flow.mean()
 
 # Week 3: 9/7-9/13
 wk3mean = data_16wk[(data_16wk.month == 9) &
-               (data_16wk.day >= 7) & (data_16wk.day <= 13)].flow.mean()
+                    (data_16wk.day >= 7) & (data_16wk.day <= 13)].flow.mean()
 
 # Week 4: 9/14-9/20
 wk4mean = data_16wk[(data_16wk.month == 9) &
-               (data_16wk.day >= 14) & (data_16wk.day <= 20)].flow.mean()
+                    (data_16wk.day >= 14) & (data_16wk.day <= 20)].flow.mean()
 
 # Week 5: 9/21-9/27
 wk5mean = data_16wk[(data_16wk.month == 9) &
-               (data_16wk.day >= 21) & (data_16wk.day <= 27)].flow.mean()
+                    (data_16wk.day >= 21) & (data_16wk.day <= 27)].flow.mean()
 
 # Week 6: 9/28-10/4
 wk6mean = data_16wk[((data_16wk.month == 9) &
-               (data_16wk.day >= 28) & (data_16wk.day <= 30)) |
-               ((data_16wk.month == 10) &
-               (data_16wk.month >= 1) & (data_16wk.month <= 4))].flow.mean()
+                    (data_16wk.day >= 28) & (data_16wk.day <= 30)) |
+                    ((data_16wk.month == 10) &
+                    (data_16wk.month >= 1) & (data_16wk.month <= 4))
+                    ].flow.mean()
 
 # Week 7: 10/5-10/11
 wk7mean = data_16wk[(data_16wk.month == 10) &
-               (data_16wk.day >= 5) & (data_16wk.day <= 11)].flow.mean()
+                    (data_16wk.day >= 5) & (data_16wk.day <= 11)].flow.mean()
 
 # Week 8: 10/12-10/18
 wk8mean = data_16wk[(data_16wk.month == 10) &
-               (data_16wk.day >= 12) & (data_16wk.day <= 18)].flow.mean()
+                    (data_16wk.day >= 12) & (data_16wk.day <= 18)].flow.mean()
 
 # Week 9: 10/19-10/25
 wk9mean = data_16wk[(data_16wk.month == 10) &
-               (data_16wk.day >= 19) & (data_16wk.day <= 25)].flow.mean()
+                    (data_16wk.day >= 19) & (data_16wk.day <= 25)].flow.mean()
 
 # Week 10: 10/26-11/1
 wk10mean = data_16wk[((data_16wk.month == 10) &
-                (data_16wk.day >= 26) & (data_16wk.day <= 31)) |
-                ((data_16wk.month == 11) & (data_16wk.day == 1))].flow.mean()
+                     (data_16wk.day >= 26) & (data_16wk.day <= 31)) |
+                     ((data_16wk.month == 11) & (data_16wk.day == 1))
+                     ].flow.mean()
 
 # Week 11: 11/2-11/8
 wk11mean = data_16wk[(data_16wk.month == 11) &
-                (data_16wk.day >= 2) & (data_16wk.day <= 8)].flow.mean()
+                     (data_16wk.day >= 2) & (data_16wk.day <= 8)].flow.mean()
 
 # Week 12: 11/9-11/15
 wk12mean = data_16wk[(data_16wk.month == 11) &
-                (data_16wk.day >= 9) & (data_16wk.day <= 15)].flow.mean()
+                     (data_16wk.day >= 9) & (data_16wk.day <= 15)].flow.mean()
 
 # Week 13: 11/16-11/22
 wk13mean = data_16wk[(data_16wk.month == 11) &
-                (data_16wk.day >= 16) & (data_16wk.day <= 22)].flow.mean()
+                     (data_16wk.day >= 16) & (data_16wk.day <= 22)].flow.mean()
 
 # Week 14: 11/23-11/29
 wk14mean = data_16wk[(data_16wk.month == 11) &
-                (data_16wk.day >= 23) & (data_16wk.day <= 29)].flow.mean()
+                     (data_16wk.day >= 23) & (data_16wk.day <= 29)].flow.mean()
 
 # Week 15: 11/30-12/6
 wk15mean = data_16wk[((data_16wk.month == 11) & (data_16wk.day == 30)) |
-                ((data_16wk.month == 12) &
-                (data_16wk.day >= 1) & (data_16wk.day <= 6))].flow.mean()
+                     ((data_16wk.month == 12) &
+                     (data_16wk.day >= 1) & (data_16wk.day <= 6))].flow.mean()
 
 # Week 16: 12/7-12/13
 wk16mean = data_16wk[(data_16wk.month == 12) &
-                (data_16wk.day >= 7) & (data_16wk.day <= 13)].flow.mean()
+                     (data_16wk.day >= 7) & (data_16wk.day <= 13)].flow.mean()
 
 
 # Put each week's forecast into a comma separated list
