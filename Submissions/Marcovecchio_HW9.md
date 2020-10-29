@@ -4,6 +4,11 @@ October 26, 2020
 
 Assignment 9
 
+___
+#### Grade
+3/3 - Nice work
+___
+
 1. A brief summary of how you chose to generate your forecast this week.
 
 I chose to generate my two week forecast by looking at a plot of streamflow at Campe Verde and precipitation at nearby Sedona for the past two weeks.  There was no new precipitation but a consistent increase in streamflow of about 10 cfs/wk, so I used that to make the prediction of 100 and 110 cfs for my week 1 and week 2 predictions, respectively.  I then got my 16 week forecasts using the same method as last week by averaging all streamflow from the past 30 years on the dates within the forecast period.
