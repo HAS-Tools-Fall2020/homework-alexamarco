@@ -4,6 +4,9 @@ November 16, 2020
 
 Assignment 12
 
+### Grade
+3/3 - Great job, I really love your map!  Remember next time to move your markdown to your submission folder. I almost missed it here. 
+
 1. A brief summary of the how you chose to generate your forecast this week.
 
   For my two week forecast, I plotted the streamflow over the past two weeks, and estimated the rate of streamflow increase visually.
