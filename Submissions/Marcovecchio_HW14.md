@@ -4,6 +4,9 @@ November 30, 2020
 
 Assignment #14
 
+## Grade
+3/3 - nice work.
+
 #### 1. What is the paper or project you picked? Include a title, a link the the paper and a 1-2 sentence summary of what its about.
 
 Hilton, T., Whelan, M., Zumkehr, A. et al. Peak growing season gross uptake of carbon in North America is largest in the Midwest USA. Nature Clim Change 7, 450–454 (2017). https://doi.org/10.1038/nclimate3272
