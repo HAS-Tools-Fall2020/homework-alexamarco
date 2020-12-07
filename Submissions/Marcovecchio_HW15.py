@@ -1,7 +1,6 @@
 # %%
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
 import numpy as np
 
 
@@ -19,9 +18,7 @@ def getForecastDates():
                      year, month, and day
     """
     #  Read in the forecast dates for each week from csv
-    filename = os.path.join('../data',
-                            "Seasonal_Forecast_Dates.csv")
-    forecast_dates = pd.read_csv(filename, skiprows=1,
+    forecast_dates = pd.read_csv("Seasonal_Forecast_Dates.csv", skiprows=1,
                                  names=['week', 'start_date', 'end_date'])
     forecast_dates[["start_year", "start_month", "start_day"]] \
         = forecast_dates["start_date"].\
@@ -80,7 +77,7 @@ ax.xaxis.set_visible(False)
 fig.set_size_inches(10, 6)
 
 print('Based on streamflow plots:')
-print('week 1 forecast: 178 cfs')
+print('week 1 forecast: 170 cfs')
 print('week 2 forecast: 177 cfs')
 
 
