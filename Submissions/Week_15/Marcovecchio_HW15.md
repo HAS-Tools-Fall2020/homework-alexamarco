@@ -2,6 +2,10 @@
 ### Assignment #15
 ### December 7, 2020
 
+#### Grade
+3/3  - Nice work. I'm sorry you weren't able to get it running but good effort and I'm glad you got google co-lab to work!
+
+
 #### What resources did you request on Ocelote?
 
 I requested 1 node, 1 cpu, and 6 GB with an expected 5 minute run time.
